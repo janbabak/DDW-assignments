@@ -8,6 +8,7 @@
 * I set maximum number of scraped urls to 300, because the CZC e-shop contains thousands of products.
 * Unfortunately czech letters are stored like unicode codes, but that is not important.
 * Scraper uses random delay, because otherwise it can get banned, or it would overload the servers.
+* I also looked into the robots.txt file before scraping and I found out, that CZC doesn't ban scraping, so everything is OK.
 
 === Product example:
 

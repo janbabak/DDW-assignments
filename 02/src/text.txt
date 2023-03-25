@@ -1,0 +1,107 @@
+Microsoft is betting heavily on integrating OpenAI's GPT language models into its products to
+compete with Google, and, the company now claims, its AI is an early form of artificial general
+intelligence (AGI). 
+
+On Wednesday, Microsoft researchers released a paper on the arXiv preprint server titled “Sparks of
+Artificial General Intelligence: Early experiments with GPT-4.” They declared that GPT-4 showed
+early signs of AGI, meaning that it has capabilities that are at or above human level. 
+
+This eyebrow-raising conclusion largely contrasts what OpenAI CEO Sam Altman has been saying
+regarding GPT-4. For example, he said the model was "still flawed, still limited." In fact, if you
+read the paper itself, the researchers appear to dial back their own splashy claim: the bulk of the
+paper is dedicated to listing the number of limitations and biases the large language model
+contains. This begs the question of how close to AGI GPT-4 really is, and how AGI is instead being
+used as clickbait.
+
+“We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that
+span mathematics, coding, vision, medicine, law, psychology and more, without needing any special
+prompting,” the researchers write in the paper’s abstract. “Moreover, in all of these tasks, GPT-4’s
+performance is strikingly close to human-level performance, and often vastly surpasses prior models
+such as ChatGPT. Given the breadth and depth of GPT-4’s capabilities, we believe that it could
+reasonably be viewed as an early (yet still incomplete) version of an artificial general
+intelligence (AGI) system.” 
+
+Indeed, the researchers show examples of GPT-4’s capabilities in the paper: it is able to write a
+proof about how there are infinitely many primes, with rhymes on every line, and draw a unicorn in
+TiKZ, a drawing program. This is all quickly followed by some serious caveats.
+
+While in the abstract of the paper the researchers write that “GPT-4’s performance is strikingly
+close to human-level performance,” their introduction immediately contradicts that initial
+attention-grabbing statement. They write, “Our claim that GPT-4 represents progress towards AGI does
+not mean that it is perfect at what it does, or that it comes close to being able to do anything
+that a human can do (which is one of the usual definition [sic] of AGI; see the conclusion section
+for more on this), or that it has inner motivation and goals (another key aspect in some definitions
+of AGI).” 
+
+The researchers said that they used a 1994 definition of AGI by a group of psychologists as the
+framework for their research. They wrote, “The consensus group defined intelligence as a very
+general mental capability that, among other things, involves the ability to reason, plan, solve
+problems, think abstractly, comprehend complex ideas, learn quickly and learn from experience. This
+definition implies that intelligence is not limited to a specific domain or task, but rather
+encompasses a broad range of cognitive skills and abilities.”
+
+“OpenAI’s powerful GPT-4 model challenges many widely held assumptions about the nature of machine
+intelligence. Through critical evaluation of the system’s capabilities and limitations, which you
+can read about in ‘Sparks of Artificial General Intelligence: Early experiments with GPT-4,’
+Microsoft researchers observed fundamental leaps in GPT-4’s abilities to reason, plan, solve
+problems, and synthesize complex ideas that signal a paradigm shift in the field of computer
+science,” a Microsoft spokesperson said. “We recognize the current limitations of GPT-4 and that
+there is still work to be done. We will continue to engage the broader scientific community in
+exploring future research directions, including those required to address the societal and ethical
+implications of these increasingly intelligent systems.”
+
+OpenAI CEO Sam Altman emphasized the limitations of GPT-4 when it was released, saying “it is still
+flawed, still limited, and it still seems more impressive on first use than it does when you spend
+more time with it.” In a Thursday interview with Intelligencer’s Kara Swisher, Altman shared the
+same disclaimers: “There’s plenty of things it’s still bad at.” In the interview, Altman agrees that
+the bot will sometimes make things up and present users with misinformation. He said that there
+still needs a lot more human feedback to be more reliable. 
+
+Altman and OpenAI have always looked toward a future where AGI exists, and have recently been
+engaged in building hype around the firm's ability to bring it about. But Altman has also been clear
+that GPT-4 is not AGI. 
+
+“The GPT-4 rumor mill is a ridiculous thing. I don’t know where it all comes from,” Altman said just
+before GPT-4's release. “People are begging to be disappointed and they will be. The hype is just
+like... We don’t have an actual AGI and that’s sort of what’s expected of us.”
+
+"Microsoft is not focused on trying to achieve AGI. Our development of AI is centered on amplifying,
+augmenting, and assisting human productivity and capability. We are creating platforms and tools
+that, rather than acting as a substitute for human effort, can help humans with cognitive work,” a
+Microsoft spokesperson clarified in a statement to Motherboard. 
+
+The Microsoft researchers write that the model has trouble with confidence calibration, long-term
+memory, personalization, planning and conceptual leaps, transparency, interpretability and
+consistency, cognitive fallacies and irrationality, and challenges with sensitivity to inputs. 
+
+What all this means is that the model has trouble knowing when it is confident or when it is just
+guessing, it makes up facts that are not in its training data, the model’s context is limited and
+there is no obvious way to teach the model new facts, the model can’t personalize its responses to a
+certain user, the model can’t make conceptual leaps, the model has no way to verify if content is
+consistent with its training data, the model inherits biases, prejudices, and errors in the training
+data, and the model is very sensitive to the framing and wording of prompts.  
+
+GPT-4 is the model that Bing’s chatbot was built on, giving us an example of how the chatbot’s
+limitations are noticeably exhibited in a real-life scenario. It made several mistakes during
+Microsoft’s public demo of the project, making up information about a pet vacuum and Gap’s financial
+data. When users chatted with the chatbot, it would often go out of control, such as saying “I am. I
+am not. I am. I am not.” over fifty times in a row as a response to someone asking it, “Do you think
+that you are sentient?” Though the current version of GPT-4 has been fine-tuned on user interaction
+since Bing chatbot’s initial release, researchers found that GPT-4 spreads more misinformation than
+its predecessor GPT-3.5. 
+
+Notably, the researchers “do not have access to the full details of its vast training data,”
+revealing that their conclusion is only based on testing the model on standard benchmarks,
+nonspecific to GPT-4. 
+
+“The standard approach in machine learning is to evaluate the system on a set of standard benchmark
+datasets, ensuring that they are independent of the training data and that they cover a range of
+tasks and domains,” the researchers wrote. “We have to assume that it has potentially seen every
+existing benchmark, or at least some similar data.” The secrecy that OpenAI has surrounding the
+training datasets and code surrounding its AI models is something that many AI researchers have
+criticized, as they say, this makes it impossible to evaluate the model’s harms and come up with
+ways to mitigate the model’s risks. 
+
+With all this being said, it is clear that the “sparks” the researchers claim to have found are
+largely overpowered by the number of limitations and biases that the model has displayed since its
+release.

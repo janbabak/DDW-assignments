@@ -19,7 +19,7 @@
     Number of nodes with finite Kevin Bacon number: 5035
     ```
 - The entire graph is saved in `result/graph.gexf. I visualized this file using Gephi software.
-![gephi visualization](/results/gephi-vizualization.png)
-![gephi detail visualization](/results/gephi-detail-visualization.png)
+![gephi visualization](results/gephi-vizualization.png)
+![gephi detail visualization](results/gephi-detail-visualization.png)
 - I also visualized the graph using several python functions, the visualization are in Jupyter notebook. The last visualization is created by graph embedding into vector space.
 - Feature improvements: some graphs are unreadable thanks to their size, but I don't want to reduce the number of nodes because I would have to select the data more carefully. For example when I used smaller dataset Kevin Bacon was only in 2-node component.

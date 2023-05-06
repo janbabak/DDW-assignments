@@ -1,0 +1,74 @@
+# HW 5 - Indexing and Document retrieval
+
+## Input data
+
+-   Input data are located in the cranfield folder. This folder contains three subfolders:
+
+    -   **d** - documents
+    -   **q** - queries
+    -   **r** - results (each result contains document ids corresponding to the query)
+
+## Document representation
+
+I used three different methods to index each document:
+
+-   **Binary representation:** representing each term by 1 or 0 depending on whether the term occurred in the document or not. This is also known as the boolean model.
+-   **Pure term frequency:** representing each term by its frequency of occurrence in the document relative to number of terms in the document.
+-   **TF-IDF:** a standard vector model representation where each term is represented by a number calculated from the term frequency in the document and the frequency in the entire collection.
+- **Hugging face**: ML model embedding the documents and queries into a vector space. Model's called [all-mpnet-base-v2](https://huggingface.co/sentence-transformers/all-mpnet-base-v2)
+
+
+## Comparison Functions
+
+To compare documents and queries, I used two comparison functions:
+
+- **Cosine Similarity:** This function compares the angle between vectors. The higher the similarity, the better the match.
+- **Euclidean Distance:** This is a basic mathematical method. The lower the distance, the better the match.
+
+## Results
+
+You can find four CSV files in the results folder, one for each method used. Each file includes the following attributes for every query:
+
+- **query id**: identifies the order of the query
+- **cosine recall**: recall value calculated using cosine similarity
+- **euclidean recall**: recall value calculated using Euclidean distance
+- **cosine precision**: precision value calculated using cosine similarity
+- **euclidean precision**: precision value calculated using Euclidean distance
+- **cosine f-measure**: F-measure calculated using cosine similarity
+- **euclidean f-measure**: F-measure calculated using Euclidean distance
+- **cosine similarity results**: top 15 most similar documents ranked by cosine similarity
+- **euclidean distance results**: top 15 most similar documents ranked by Euclidean distance
+
+After finding the average of each method, here are the results in order from best to worst. The machine learning model performed significantly better than the others. TFIDF yielded decent results, but the remaining methods were not as good. Additionally, the Euclidean distance performed worse than cosine similarity almost every time.
+
+### Hugging face
+- Average recall cosine similarity: 0.5134356955669295
+- Average recall euclidean distance: 0.5134356955669295
+- Average precision cosine similarity: 0.24237037037037054
+- Average precision euclidean distance: 0.24237037037037054
+- Average f-measure cosine similarity: 0.30709821408436894
+- Average f-measure euclidean distance: 0.30709821408436894
+
+### TFIDF
+- Average recall cosine similarity: 0.4118004319281962
+- Average recall euclidean distance: 0.3952715661908679
+- Average precision cosine similarity: 0.194962962962963
+- Average precision euclidean distance: 0.18666666666666676
+- Average f-measure cosine similarity: 0.24749918024035936
+- Average f-measure euclidean distance: 0.2370569572850955
+
+### TF
+- Average recall cosine similarity: 0.3522248906441924
+- Average recall euclidean distance: 0.02450924639430387
+- Average precision cosine similarity: 0.16888888888888876
+- Average precision euclidean distance: 0.011851851851851856
+- Average f-measure cosine similarity: 0.2130027720756295
+- Average f-measure euclidean distance: 0.015025596706319786
+
+### Binary representation
+- Average recall cosine similarity: 0.3489526181549953
+- Average recall euclidean distance: 0.036008796227187036
+- Average precision cosine similarity: 0.16177777777777771
+- Average precision euclidean distance: 0.01659259259259261
+- Average f-measure cosine similarity: 0.20678550947192909
+- Average f-measure euclidean distance: 0.021485892465035034

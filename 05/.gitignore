@@ -1,0 +1,5 @@
+*.txt
+venv
+.venv
+venv2
+venv2/

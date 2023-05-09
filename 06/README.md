@@ -69,3 +69,7 @@ The precision and recall values are identical because the count of testing data 
 The results are stored in the [results](/results/) folder.
 
 The results of Tensorflow recommenders are strange because they suggest one movie several times. As an ML beginner, I have no idea why this is happening.
+
+Top 10 recommendations for user 2: [[b'The Drop (2014)' b'The Drop (2014)' b'The Drop (2014)'
+  b'Warrior (2011)' b'Warrior (2011)' b'Warrior (2011)' b'Warrior (2011)'
+  b'Warrior (2011)' b'Warrior (2011)' b'Warrior (2011)']]

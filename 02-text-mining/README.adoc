@@ -56,4 +56,4 @@ In your repository provide the following information:
 
 == Solution 
 
-Is in the xref:/src/main.ipynb[jupyter notebook]
+Is in the xref:./src/main.ipynb[jupyter notebook]

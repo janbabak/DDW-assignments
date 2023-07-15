@@ -1,0 +1,10 @@
+= Web data mining assignments
+
+This repository includes homework assignments from the Web data mining course at https://fit.cvut.cz/en[FIT Czech Technical University in Prague].
+
+* xref:01-data-acquisition-web-scraper/README#[Data acquisition - web crawler/scraper]
+* xref:02-text-mining/README#[Text mining]
+* xref:03-social-network-analysis/README#[Social network analysis]
+* xref:04-web-analytic-web-usage-mining/README#[Web analytic - web usage mining]
+* xref:05-indexing-document-retrieval/README#[Indexing + document retrieval]
+* xref:06-recommender-systems/README#[Recommender systems]

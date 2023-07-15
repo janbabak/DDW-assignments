@@ -1,0 +1,98 @@
+= 1. Data Acquisition - Web Crawler/Scraper 
+:toc:
+
+== Task
+
+
+* Select a web source of your own choice for the non-trivial web crawling task.
+** The resource should contain hundreds/thousands of unique pages to crawl.
+** Each page should contain at least:
+*** Title - e.g. an article title, a product title, ...
+*** Main content/text - a main text of the article, a description of the product, ...
+*** Additional features describing the page - information about author, date of publishing, product item parameters, ...
+* Identify possible issues with crawling:
+** Explore the robot exclusion protocol, availability of the sitemaps description, ...
+** Identify issues with extraction of relevant information
+*** Extraction using machine readable annotations, own set of rules/selectors, automatic detection of the content, ...
+* Properly design and implement the extraction task
+** Inputs and outputs of the task
+** Dealing with policies
+** Selection of the language/tools
+* Configure the crawler
+** focus on crawling of just one single host (domain)
+**  set the crawl interval! Otherwise you can be banned!
+** set the crawl depth
+** user-agent string
+** seed URLs
+** and other settings you consider important.
+
+
+== Instructions for submitting
+
+
+In your repository provide the following information:
+
+* Describe the web resource
+** e.g. main URL, extracted information
+* Describe the design of the extraction task
+** Inputs and outputs of the task
+* Implement the crawler/scraper
+** You can use any language - recommended is the scrapy in Python
+* Store data in a structured format
+** e.g. simple JSON format
+** optional: Store data to a database of your choice - e.g. mongo, solr, ...
+* Provide your implementation
+* Provide the extracted data
+* Comment on
+** issues during the design/extraction
+** ideas for extensions/improvements/future work
+
+
+== Ideas/Motivating Examples
+
+
+* Crawling articles from specific domain
+** e.g. news articles
+* Crawling and monitoring existing OpenData endpoints
+* Crawling blog posts
+* Crawling tweets
+* Crawling e-shop articles
+* Crawling discussion/comments
+* Extraction of data from social networks
+* ...
+
+== Solution - CZC web scraper
+
+=== Description
+
+* Web scraper for retrieving products from eshop https://www.czc.cz.
+* Scraper is focussed on iPhones and Apple accessories, but it scrapes also other recommended products.
+* Scrapped product are stored in JSON format and can be found in `/results/products.json`.
+* I set maximum number of scraped urls to 300, because the CZC e-shop contains thousands of products.
+* Unfortunately czech letters are stored like unicode codes, but that is not important.
+* Scraper uses random delay, because otherwise it can get banned, or it would overload the servers.
+* I also looked into the robots.txt file before scraping and I found out, that CZC doesn't ban scraping, so everything is OK.
+
+==== Product example:
+
+[source,json]
+	{
+		"name": "Apple iPhone 13 mini, 128GB, Midnight",
+		"price without vat": "14 867 K\u010d",
+		"price with vat": "17 989 K\u010d",
+		"stock info": "Skladem 5 a",
+		"url": "https://www.czc.cz/apple-iphone-13-mini-128gb-midnight/327325/produkt",
+		"description": "Nov\u00e1 generace iPhone s vylep\u0161enou du\u00e1ln\u00ed fotosoustavou, nekompromisn\u00edm v\u00fdkonem \u010dipu A15 Bionic, displejem OLED Super Retina XDR, p\u0159ipojen\u00edm 5G, um\u011blou inteligenc\u00ed a sadou nov\u00fdch funkc\u00ed. 5.4\" displej s \u0161irok\u00fdm barevn\u00fdm gamutem, technologi\u00ed TrueTone a Haptic Touch, rozli\u0161en\u00ed 2340 \u00d7 1080 bod\u016f, 128GB intern\u00ed pam\u011bti, du\u00e1ln\u00ed 12MP fotoapar\u00e1t (AI, \u0192/1.6 wide, \u0192/2.4 ultrawide, OIS), p\u0159edn\u00ed 12MP kamera TrueDepth s Face ID, Bluetooth 5.0, NFC, Wi-Fi ax, GPS/ GLONASS/ Galileo/ QZSS/ BeiDou, rozhran\u00ed Lightning, odolnost proti vod\u011b a prachu IP68, podpora bezdr\u00e1tov\u00e9ho nab\u00edjen\u00ed Qi a MagSafe, rychl\u00e9 nab\u00edjen\u00ed 50 % za 30 minut, opera\u010dn\u00ed syst\u00e9m iOS 15."
+	},
+
+=== How to run
+
+[source,bash]
+$ python3 src/crawler.py
+
+=== Issues
+
+* Firstly I started scrapping another e-shop (Alza), but they didn't let me do so, got 403 status codes.
+I tried to pretend user request by setting user-agent header, but that didn't work.
+
+

@@ -1,6 +1,73 @@
-# HW 5 - Indexing and Document retrieval
+= 5. Indexing + Document Retrieval 
 
-## Input data
+== Task
+
+
+* Download an existing IR dataset - http://ir.dcs.gla.ac.uk/resources/test_collections/cran/[Cranfield collection]
+** Or you can use already preprocessed data link:files/cranfield.zip[cranfield.zip] (d-documents, q-queries, r-relevances (a set of relevant document ids for each query id))
+* Represent each document and query using the Vector Space Model with all following weightings:
+** Use Binary representation
+** Use pure Term Frequency
+** Use TF-IDF
+** Try existing model for text/document embeddings (or text/sentence similarity model from Hugging Face)
+* Compute relevance scores for each combination of query, document
+** Use Euclidean distance
+** Use Cosine similarity measure
+* Evaluate quality and difference of both scores and different weighting schemas
+** Compute Precision, Recall, F-measure (you can limit to top N relevant documents for each query)
+
+
+== Instructions for submitting
+
+
+In your repository provide the following information:
+
+* Describe results of different weighting schemas and different relevance scores
+* Describe/summarise/compare evaluation metrics
+* Provide your implementation
+* Provide the computed relevance scores for each combination (e.g. csv file)
+* Comment on
+** issues during the design/implementation
+** ideas for extensions/improvements/future work
+
+
+== Example
+
+
+[source,python]
+----
+# import
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
+
+# prepare corpus
+corpus = []
+for d in range(1400):
+    f = open("./d/"+str(d+1)+".txt")
+    corpus.append(f.read())
+# add query to corpus
+for q in [1]:
+    f = open("./q/"+str(q)+".txt")
+    corpus.append(f.read())
+
+# init vectorizer
+tfidf_vectorizer = TfidfVectorizer()
+
+# prepare matrix
+tfidf_matrix = tfidf_vectorizer.fit_transform(corpus)
+
+# compute similarity between query and all docs (tf-idf) and get top 10 relevant
+sim = np.array(cosine_similarity(tfidf_matrix[len(corpus)-1], tfidf_matrix[0:(len(corpus)-1)])[0])
+topRelevant = sim.argsort()[-10:][::-1]+1
+print(topRelevant)
+----
+
+
+
+== Solution
+
+=== Input data
 
 -   Input data are located in the cranfield folder. This folder contains three subfolders:
 
@@ -8,7 +75,7 @@
     -   **q** - queries
     -   **r** - results (each result contains document ids corresponding to the query)
 
-## Document representation
+=== Document representation
 
 I used three different methods to index each document:
 
@@ -18,14 +85,14 @@ I used three different methods to index each document:
 - **Hugging face**: ML model embedding the documents and queries into a vector space. Model's called [all-mpnet-base-v2](https://huggingface.co/sentence-transformers/all-mpnet-base-v2)
 
 
-## Comparison Functions
+=== Comparison Functions
 
 To compare documents and queries, I used two comparison functions:
 
 - **Cosine Similarity:** This function compares the angle between vectors. The higher the similarity, the better the match.
 - **Euclidean Distance:** This is a basic mathematical method. The lower the distance, the better the match.
 
-## Results
+=== Results
 
 You can find four CSV files in the results folder, one for each method used. Each file includes the following attributes for every query:
 
@@ -41,7 +108,7 @@ You can find four CSV files in the results folder, one for each method used. Eac
 
 After finding the average of each method, here are the results in order from best to worst. The machine learning model performed significantly better than the others. TFIDF yielded decent results, but the remaining methods were not as good. Additionally, the Euclidean distance performed worse than cosine similarity almost every time.
 
-### Hugging face
+==== Hugging face
 - Average recall cosine similarity: 0.5134356955669295
 - Average recall euclidean distance: 0.5134356955669295
 - Average precision cosine similarity: 0.24237037037037054
@@ -49,7 +116,7 @@ After finding the average of each method, here are the results in order from bes
 - Average f-measure cosine similarity: 0.30709821408436894
 - Average f-measure euclidean distance: 0.30709821408436894
 
-### TFIDF
+==== TFIDF
 - Average recall cosine similarity: 0.4118004319281962
 - Average recall euclidean distance: 0.3952715661908679
 - Average precision cosine similarity: 0.194962962962963
@@ -57,7 +124,7 @@ After finding the average of each method, here are the results in order from bes
 - Average f-measure cosine similarity: 0.24749918024035936
 - Average f-measure euclidean distance: 0.2370569572850955
 
-### TF
+==== TF
 - Average recall cosine similarity: 0.3522248906441924
 - Average recall euclidean distance: 0.02450924639430387
 - Average precision cosine similarity: 0.16888888888888876
@@ -65,7 +132,7 @@ After finding the average of each method, here are the results in order from bes
 - Average f-measure cosine similarity: 0.2130027720756295
 - Average f-measure euclidean distance: 0.015025596706319786
 
-### Binary representation
+==== Binary representation
 - Average recall cosine similarity: 0.3489526181549953
 - Average recall euclidean distance: 0.036008796227187036
 - Average precision cosine similarity: 0.16177777777777771
